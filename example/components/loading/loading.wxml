@@ -1,0 +1,22 @@
+<view
+  class="{{ cellClass }}"  
+  style="{{ customStyle }}"
+  bind:tap="onClick"
+>
+  <view
+    style="{{ titleStyle }}"
+    class="van-cell__title title-class"
+  >
+    <block wx:if="{{ title }}">
+      {{ title }}
+      <view wx:if="{{ label }}" class="van-cell__label label-class">{{ label }}</view>
+    </block>
+    <slot wx:else name="title" />
+  </view>
+
+  <view class="van-cell__value value-class">
+    <view wx:if="{{ value }}">{{ value }}</view>
+    <slot wx:else />
+  </view>
+  <slot name="extra" />
+</view>
